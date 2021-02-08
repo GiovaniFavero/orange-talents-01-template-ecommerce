@@ -3,12 +3,11 @@ package br.com.zup.mercadolivre.order.beforepayment;
 import br.com.zup.mercadolivre.order.Order;
 import br.com.zup.mercadolivre.order.PaymentGateway;
 import br.com.zup.mercadolivre.product.Product;
-import br.com.zup.mercadolivre.shared.config.validation.annotations.ExistsId;
+import br.com.zup.mercadolivre.shared.validation.annotations.ExistsId;
 import br.com.zup.mercadolivre.user.User;
 import io.jsonwebtoken.lang.Assert;
 
 import javax.persistence.EntityManager;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 

@@ -1,4 +1,4 @@
-package br.com.zup.mercadolivre.shared.config.validation;
+package br.com.zup.mercadolivre.shared.validation;
 
 public class ErrorFormDto {
 

@@ -1,6 +1,6 @@
 package br.com.zup.mercadolivre.user;
 
-import br.com.zup.mercadolivre.shared.config.validation.annotations.UniqueValue;
+import br.com.zup.mercadolivre.shared.validation.annotations.UniqueValue;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;

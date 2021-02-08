@@ -1,7 +1,7 @@
 package br.com.zup.mercadolivre.category;
 
-import br.com.zup.mercadolivre.shared.config.validation.annotations.ExistsId;
-import br.com.zup.mercadolivre.shared.config.validation.annotations.UniqueValue;
+import br.com.zup.mercadolivre.shared.validation.annotations.ExistsId;
+import br.com.zup.mercadolivre.shared.validation.annotations.UniqueValue;
 import org.springframework.util.Assert;
 
 import javax.persistence.EntityManager;

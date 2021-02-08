@@ -1,4 +1,4 @@
-package br.com.zup.mercadolivre.shared.config.validation.annotations;
+package br.com.zup.mercadolivre.shared.validation.annotations;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

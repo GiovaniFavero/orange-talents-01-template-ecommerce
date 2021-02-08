@@ -4,7 +4,7 @@ import br.com.zup.mercadolivre.category.Category;
 import br.com.zup.mercadolivre.product.Product;
 import br.com.zup.mercadolivre.product.productcharacteristic.NewProductCharacteristicRequestDto;
 import br.com.zup.mercadolivre.product.productcharacteristic.ProductCharacteristic;
-import br.com.zup.mercadolivre.shared.config.validation.annotations.ExistsId;
+import br.com.zup.mercadolivre.shared.validation.annotations.ExistsId;
 import br.com.zup.mercadolivre.user.User;
 import org.springframework.util.Assert;
 
@@ -44,6 +44,11 @@ public class NewProductRequestDto {
         this.productCharacteristics = productCharacteristics;
         this.description = description;
         this.categoryId = categoryId;
+    }
+
+    public NewProductRequestDto(@NotBlank String name, @Size(min = 3) List<NewProductCharacteristicRequestDto> productCharacteristics) {
+        this.name = name;
+        this.productCharacteristics = productCharacteristics;
     }
 
     public String getName() {

@@ -1,4 +1,4 @@
-package br.com.zup.mercadolivre.shared.config.validation;
+package br.com.zup.mercadolivre.shared.validation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

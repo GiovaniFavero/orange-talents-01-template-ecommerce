@@ -1,4 +1,4 @@
-package br.com.zup.mercadolivre.shared.config.validation.annotations;
+package br.com.zup.mercadolivre.shared.validation.annotations;
 
 import org.springframework.util.Assert;
 
@@ -9,7 +9,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.List;
 
-public class ExistsIdValidator implements ConstraintValidator<ExistsId, Long> {
+public class UniqueValueValidator implements ConstraintValidator<UniqueValue, Object> {
 
     private String domainAttribute;
     private Class<?> klass;
@@ -17,22 +17,20 @@ public class ExistsIdValidator implements ConstraintValidator<ExistsId, Long> {
     private EntityManager entityManager;
 
     @Override
-    public void initialize(ExistsId constraintAnnotation) {
+    public void initialize(UniqueValue constraintAnnotation) {
         domainAttribute = constraintAnnotation.fieldName();
         klass = constraintAnnotation.domainClass();
     }
 
     @Override
-    public boolean isValid(Long value, ConstraintValidatorContext context) {
-        if(value == null) {
-            return true;
-        }
+    public boolean isValid(Object value, ConstraintValidatorContext context) {
         Query query = entityManager.createQuery("select 1 from " + klass.getName() + " where " + domainAttribute + "=:value");
         query.setParameter("value", value);
         List<?> list = query.getResultList();
-        String message = klass.getSimpleName() + " with ID "+ value + " was not found!.";
+        String message = "The system found more than one " + klass.getSimpleName() + " with the attribute " + domainAttribute + " = " + value;
+        Assert.state(list.size() <= 1, message);
         context.disableDefaultConstraintViolation();
         context.buildConstraintViolationWithTemplate(message).addConstraintViolation();
-        return !list.isEmpty();
+        return list.isEmpty();
     }
 }

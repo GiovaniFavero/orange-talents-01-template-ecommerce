@@ -67,9 +67,9 @@ public class Product {
                    @NotNull @Valid User owner) {
         Assert.hasLength(name, "[Product] Name can't be blank");
         Assert.notNull(price, "[Product] Price can't be null");
-        Assert.isTrue(price.intValue() >= 0, "[Product] Price must be positive");
+        Assert.isTrue(price.intValue() > 0, "[Product] Price must be positive");
         Assert.notNull(quantity, "[Product] Quantity can't be null");
-        Assert.isTrue(quantity >= 0, "[Product] Quantity must be positive");
+        Assert.isTrue(quantity > 0, "[Product] Quantity must be positive");
         Assert.notNull(productCharacteristics, "[Product] Product characteristic list can't be null");
         Assert.isTrue(productCharacteristics.size() >= 3, "[Product] Product characteristic list must have at least 3 items");
         Assert.hasLength(description, "[Product] Description can't be blank");
